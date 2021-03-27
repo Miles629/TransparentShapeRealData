@@ -64,8 +64,8 @@ class BatchLoader(Dataset):
             self.upArr = []
             print("shapeList: ",shapeList)
             print("shapRs:",shapeRs,"len(shapelist):",len(shapeList),"shapeRe",shapeRe)
-            # for n in range(max(0, shapeRs ), min(len(shapeList ), shapeRe ) ):
-            for n in range(max(0, shapeRs ), max(len(shapeList ), shapeRe ) ):
+            for n in range(max(0, shapeRs ), min(len(shapeList ), shapeRe ) ):
+            # for n in range(max(0, shapeRs ), max(len(shapeList ), shapeRe ) ):
                 shape = osp.join(shapeRoot, 'Shape__%d' % n )
                 # cy：防止下面camNumList越界
                 if not osp.isdir(shape ):
@@ -311,6 +311,7 @@ class BatchLoader(Dataset):
                 ups.append(up[np.newaxis, :] )
 
             if self.isLoadEnvmap:
+                print("self.envList:",self.envList,"shapeid:",shapeId)
                 envFileName = self.envList[shapeId ]
                 #scale = self.scaleList[shapeId ]
                 env = cv2.cvtColor(cv2.imread(envFileName, -1), cv2.COLOR_BGRA2BGR)[:, :, ::-1]
