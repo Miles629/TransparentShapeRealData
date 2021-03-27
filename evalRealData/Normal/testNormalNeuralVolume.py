@@ -248,6 +248,7 @@ countSum = 0
 print(brdfLoader)
 
 for i, dataBatch in enumerate(brdfLoader):
+    print("i:",i,"  dataBatch:",dataBatch)
     j += 1
     '''
     # Load ground-truth from cpu to gpu
