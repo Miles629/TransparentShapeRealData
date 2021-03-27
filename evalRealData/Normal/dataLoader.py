@@ -133,6 +133,7 @@ class BatchLoader(Dataset):
         self.shapeNameList = []
         self.camNumSingleList = []
         for n in range(max(0, shapeRs ), min(len(shapeList ), shapeRe ) ):
+            print("for n in range(max(0, shapeRs ), min(len(shapeList ), shapeRe ) ):",n)
             shape = osp.join(dataRoot, 'Shape__%d' % n )
             if not osp.isdir(shape ):
                 continue
