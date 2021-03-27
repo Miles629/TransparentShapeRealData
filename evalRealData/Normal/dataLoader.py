@@ -236,6 +236,7 @@ class BatchLoader(Dataset):
 
         imScale = None
         for imName in imNames:
+            print("imName:",imName)
             '''
             twoBounceName = imName.replace('im_', 'imtwoBounce_').replace('.rgbe', '.npy')
             if not osp.isfile(twoBounceName ):
@@ -290,6 +291,7 @@ class BatchLoader(Dataset):
 
             imId = int(imName.split('/')[-1].split('.')[0].split('_')[-1]  )
             shapeId = int(imName.split('/')[-2].split('_')[-1] ) - self.shapeRs
+            print("shapeId",shapeId)
 
             segs.append(seg[np.newaxis, :] )
             #seg2s.append(seg2[np.newaxis, :] )
@@ -302,6 +304,7 @@ class BatchLoader(Dataset):
 
             # Load the rendering file
             if self.isLoadCam:
+                print("self.originArr",self.originArr)
                 origin = self.originArr[shapeId ][imId-1 ]
                 lookat = self.lookatArr[shapeId ][imId-1 ]
                 up = self.upArr[shapeId ][imId-1 ]
