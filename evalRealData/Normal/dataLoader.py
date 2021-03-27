@@ -103,6 +103,7 @@ class BatchLoader(Dataset):
                 self.originArr.append(origins )
                 self.lookatArr.append(lookats )
                 self.upArr.append(ups )
+                print("self.originArr",self.originArr)
 
         if isLoadEnvmap:
             self.envList = []
@@ -144,7 +145,6 @@ class BatchLoader(Dataset):
             shape = osp.join(dataRoot, 'Shape__%d' % n )
             if not osp.isdir(shape ):
                 continue
-            print("执行camNum = self.camNumList[n]")
             camNum = self.camNumList[n]
             #imNames = sorted(glob.glob(osp.join(shape, 'im_*.rgbe' ) ) )
             imNames = sorted(glob.glob(osp.join(shape, 'im_*.png' ) ) )
