@@ -61,7 +61,7 @@ class BatchLoader(Dataset):
         if isLoadCam:
             self.originArr = []
             self.lookatArr = []
-            self.upArr = []:
+            self.upArr = []
             print("shapeList: ",shapeList)
             print("shapRs:",shapeRs,"len(shapelist):",len(shapeList),"shapeRe",shapeRe)
             for n in range(max(0, shapeRs ), min(len(shapeList ), shapeRe ) ):
