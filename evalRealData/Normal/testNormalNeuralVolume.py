@@ -245,7 +245,7 @@ epoch = opt.nepoch
 testingLog = open('{0}/testingLog_{1}.txt'.format(opt.testRoot, epoch ), 'w' )
 timeSum = 0
 countSum = 0
-print(brdfLoader)
+print("brdfLoader in tNNV.py:",brdfLoader)
 
 for i, dataBatch in enumerate(brdfLoader):
     print("i:",i,"  dataBatch:",dataBatch)
