@@ -49,7 +49,7 @@ parser.add_argument('--fov', type=float, default=63.35, help='the field of view 
 # The loss parameters
 parser.add_argument('--normalWeight', type=float, default=1.0, help='the weight for normal' )
 parser.add_argument('--renderWeight', type=float, default=0.0, help='the weight for rendering loss')
-parser.add_argument('--intermediateWeight', type=float, default=0.01, help='the weight of intermediate supervision')
+parser.add_argument('--intermediateWeight', type=float, default=0.01, help='the weight of intermediate supervision')#中间监督的weight
 # The gpu setting
 parser.add_argument('--cuda', action='store_true', help='enables cuda' )
 parser.add_argument('--deviceIds', type=int, nargs='+', default=[0], help='the gpus used for training network' )
@@ -427,6 +427,7 @@ for i, dataBatch in enumerate(brdfLoader):
 
     timeSum += (end - start )
     countSum += 1
+    print("countSum+1,now countSumL",countSum)
 
     '''
     # Compute the error
