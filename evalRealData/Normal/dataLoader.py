@@ -61,7 +61,9 @@ class BatchLoader(Dataset):
         if isLoadCam:
             self.originArr = []
             self.lookatArr = []
-            self.upArr = []
+            self.upArr = []:
+            print("shapeList: ",shapeList)
+            print("shapRs:",shapeRs,"len(shapelist):",len(shapeList),"shapeRe",shapeRe)
             for n in range(max(0, shapeRs ), min(len(shapeList ), shapeRe ) ):
                 shape = osp.join(shapeRoot, 'Shape__%d' % n )
                 if not osp.isdir(shape ):
@@ -139,6 +141,7 @@ class BatchLoader(Dataset):
             shape = osp.join(dataRoot, 'Shape__%d' % n )
             if not osp.isdir(shape ):
                 continue
+            print("执行camNum = self.camNumList[n]")
             camNum = self.camNumList[n]
             #imNames = sorted(glob.glob(osp.join(shape, 'im_*.rgbe' ) ) )
             imNames = sorted(glob.glob(osp.join(shape, 'im_*.png' ) ) )
