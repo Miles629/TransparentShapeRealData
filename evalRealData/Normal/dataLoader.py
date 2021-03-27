@@ -68,7 +68,9 @@ class BatchLoader(Dataset):
                     continue
                 print(shape)
                 camNum = int(glob.glob(osp.join(shape, '*.ply'))[0].split('_')[-1].split('.')[0])
+                print("camNum in dataloader.py",camNum)
                 self.camNumList.append(camNum)
+                print("camNumList",self.camNumList)
                 camFileName = osp.join(shape, 'cam%d.txt' % camNum )
                 with open(camFileName, 'r') as camIn:
                     camLines = camIn.readlines()
