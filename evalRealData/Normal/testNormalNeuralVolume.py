@@ -58,6 +58,7 @@ opt = parser.parse_args()
 print(opt)
 
 opt.gpuId = opt.deviceIds[0]
+print("deviceids:",opt.gpuId)
 #opt.dataRoot = opt.dataRoot % opt.camNum
 
 nw = opt.normalWeight

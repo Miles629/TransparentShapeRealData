@@ -69,7 +69,7 @@ class BatchLoader(Dataset):
                 shape = osp.join(shapeRoot, 'Shape__%d' % n )
                 # cy：防止下面camNumList越界
                 if not osp.isdir(shape ):
-                    self.camNumList.append(0)
+                    # self.camNumList.append(0)
                     continue
                 print(shape)
                 camNum = int(glob.glob(osp.join(shape, '*.ply'))[0].split('_')[-1].split('.')[0])
