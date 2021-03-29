@@ -141,17 +141,17 @@ encoder.load_state_dict(torch.load('{0}/encoder_{1}.pth'.format(opt.experiment, 
 decoder = models.decoder(isAddVisualHull = opt.isAddVisualHull )
 for param in decoder.parameters():
     param.requires_grad = False
-decoder.load_state_dict(torch.load('{0}/decoder_{1}.pth'.format(opt.experiment, opt.nepoch-1 ) ) )
+decoder.load_state_dict(torch.load('{0}/decoder_{1}.pth'.format(opt.experiment, opt.nepoch-1 ),map_location={'cuda:0': 'cuda:{0}'.format(opt.gpuId)} ) )
 
 normalFeature = models.normalFeature()
 for param in normalFeature.parameters():
     param.requires_grad = False
-normalFeature.load_state_dict(torch.load('{0}/normalFeature_{1}.pth'.format(opt.experiment, opt.nepoch-1) ) )
+normalFeature.load_state_dict(torch.load('{0}/normalFeature_{1}.pth'.format(opt.experiment, opt.nepoch-1) ,map_location={'cuda:0': 'cuda:{0}'.format(opt.gpuId)}) )
 
 normalPool = Variable(torch.ones([1, angleNum * angleNum, 1, 1, 1], dtype=torch.float32 ) )
 normalPool.requires_grad = False
 if opt.isAddCostVolume and opt.poolingMode == 2:
-    normalPool.data.copy_(torch.load('{0}/normalPool_{1}.pth'.format(opt.experiment, opt.nepoch-1) ) )
+    normalPool.data.copy_(torch.load('{0}/normalPool_{1}.pth'.format(opt.experiment, opt.nepoch-1) ,map_location={'cuda:0': 'cuda:{0}'.format(opt.gpuId)}) )
 '''
 if opt.isAddVisualHull:
     encoderVH = models.encoderVH()
