@@ -23,7 +23,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--dataRoot', default='../../createRealData/ImagesReal/real/', help='path to images' )
 parser.add_argument('--shapeRoot', default='../../createRealData/Shapes/real/', help='path to images' )
 parser.add_argument('--experiment', default='../Model/Normal/check%d_normal_nw1.00_volume_sp1_an4_weigtedSum', help='the path to store samples and models' )
-parser.add_argument('--testRoot', default=None, help='the path to store outputs')
+parser.add_argument('--testRoot', default='./testlog', help='the path to store outputs')
 # The basic training setting
 parser.add_argument('--nepoch', type=int, default=10, help='the number of epochs for training' )
 parser.add_argument('--batchSize', type=int, default=1, help='input batch size' )
@@ -249,6 +249,7 @@ timeSum = 0
 countSum = 0
 
 print("brdfLoader in tNNV.py:",brdfLoader)
+
 for i, dataBatch in enumerate(brdfLoader):
     print("i:",i,"  dataBatch:",dataBatch)
     j += 1
