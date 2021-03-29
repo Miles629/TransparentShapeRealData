@@ -249,6 +249,8 @@ timeSum = 0
 countSum = 0
 
 print("brdfLoader in tNNV.py:",brdfLoader)
+print("brdLoader:",brdLoader)
+print("enumerate(brdfLoader):",enumerate(brdfLoader))
 
 for i, dataBatch in enumerate(brdfLoader):
     print("i:",i,"  dataBatch:",dataBatch)
