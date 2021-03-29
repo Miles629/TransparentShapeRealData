@@ -250,11 +250,12 @@ countSum = 0
 
 print("brdfLoader in tNNV.py:",brdfLoader)
 for i in brdfLoader:
-    print(i)
+    print('一个brdfLoader')
 print("brdLoader:",str(brdfLoader))
 print("enumerate(brdfLoader):",enumerate(brdfLoader))
 for i in enumerate(brdfLoader):
-    print(i)
+    print('一个em(brdfLoader)')
+
 
 for i, dataBatch in enumerate(brdfLoader):
     print("i:",i,"  dataBatch:",dataBatch)
