@@ -23,7 +23,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--dataRoot', default='../../createRealData/ImagesReal/real/', help='path to images' )
 parser.add_argument('--shapeRoot', default='../../createRealData/Shapes/real/', help='path to images' )
 parser.add_argument('--experiment', default='../Model/Normal/check%d_normal_nw1.00_volume_sp1_an4_weigtedSum', help='the path to store samples and models' )
-parser.add_argument('--testRoot', default='./testlog', help='the path to store outputs')
+parser.add_argument('--testRoot', default=None, help='the path to store outputs')
 # The basic training setting
 parser.add_argument('--nepoch', type=int, default=10, help='the number of epochs for training' )
 parser.add_argument('--batchSize', type=int, default=1, help='input batch size' )
@@ -136,7 +136,7 @@ colormap = torch.from_numpy(colormap).cuda()
 encoder = models.encoder(isAddCostVolume = opt.isAddCostVolume )
 for param in encoder.parameters():
     param.requires_grad = False
-encoder.load_state_dict(torch.load('{0}/encoder_{1}.pth'.format(opt.experiment, opt.nepoch-1 ) ) )
+encoder.load_state_dict(torch.load('{0}/encoder_{1}.pth'.format(opt.experiment, opt.nepoch-1 ) , map_location={'cuda:0': 'cuda:{0}'.format(opt.gpuId)}) )
 
 decoder = models.decoder(isAddVisualHull = opt.isAddVisualHull )
 for param in decoder.parameters():
